@@ -16,7 +16,7 @@ then
 # if the file is cuda HEADER hipify to hip.h
 elif  [[ "$extension" == "cuh" ]]; then
         hipify-perl $1 > ${name}".hip.h"
-#if the file is cpp and it does include to cuh, ocpy the file to hip.cpp and rename .cuh to hip.h
+#if the file is cpp and it does include to cuh, copy the file to hip.cpp and rename .cuh to hip.h
 elif [[ "$extension" == "cpp" ]]; then
         checkcu=`grep cuh $1 | wc -l`
         if [[ "$checkcu" -gt "0" ]]; then
